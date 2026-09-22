@@ -1,0 +1,26 @@
+# ── Core data ──
+pandas>=2.0.0
+pyarrow>=14.0.0          # Parquet read/write via pandas
+
+# ── DuckDB (in-process analytical SQL — used for fact/dimension joins and metrics) ──
+duckdb>=0.10.0
+
+# ── Socrata API (second retrieval mode — taxi zone lookup) ──
+sodapy>=2.2.0            # Official Socrata Python client
+requests>=2.31.0         # Fallback HTTP calls + checksum downloads
+
+# ── Validation & profiling ──
+great-expectations>=0.18.0   # Optional: schema drift detection (used in validate.py)
+
+# ── Checksums / hashing ──
+# hashlib is stdlib; no extra dep needed
+
+# ── Logging / CLI ──
+# logging is stdlib
+# argparse is stdlib
+
+# ── Testing ──
+pytest>=7.4.0
+
+# ── Notebook (optional exploration) ──
+jupyter>=1.0.0

@@ -1,0 +1,52 @@
+# ── Raw & processed data (large binary files; never commit raw TLC Parquet) ──
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# ── Reference data fetched at runtime (re-fetched by ingest.py) ──
+data/reference/*
+!data/reference/.gitkeep
+
+# ── Pipeline log files (auto-generated per run) ──
+logs/*
+!logs/.gitkeep
+
+# ── Pipeline outputs (generated; committed only when explicitly staged) ──
+outputs/*
+!outputs/.gitkeep
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ──
+.venv/
+venv/
+env/
+.env
+
+# ── Jupyter ──
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# ── OS artifacts ──
+.DS_Store
+Thumbs.db
+
+# ── IDE ──
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── DuckDB (local in-memory DB files, re-created on each run) ──
+*.duckdb
+*.duckdb.wal
