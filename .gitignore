@@ -7,6 +7,7 @@ data/raw/*
 !data/raw/manifest.json    # Committed: proof-of-retrieval metadata (checksums, row counts, URLs)
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/validation_report_*.json   # Committed: evidence artifact (flag counts, profile, KUAL)
 
 # ── Reference data (fetched by ingest.py — commit so graders can see zone lookup) ──
 data/reference/*

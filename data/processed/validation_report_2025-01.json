@@ -1,0 +1,292 @@
+{
+  "run_at": "2026-09-22T17:16:41.823329+00:00",
+  "month": "2025-01",
+  "elapsed_seconds": 5.7,
+  "counts": {
+    "rows_in_raw": 3475226,
+    "rows_hard_flagged": 258452,
+    "rows_hard_flagged_pct": 7.437,
+    "rows_soft_only_flagged": 18210,
+    "rows_soft_only_flagged_pct": 0.524,
+    "rows_valid_out": 3216774,
+    "rows_valid_pct": 92.563
+  },
+  "flag_counts": {
+    "out_of_month": 22,
+    "temporal_invalid": 2051,
+    "duration_invalid": 41314,
+    "distance_invalid": 91055,
+    "fare_invalid": 145037,
+    "location_unknown": 28357,
+    "location_invalid": 92,
+    "fare_per_mile_outlier": 155412,
+    "passenger_count_suspect": 18,
+    "zero_distance_with_fare": 75846
+  },
+  "profile": {
+    "VendorID": {
+      "dtype": "int32",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": 1.0,
+      "max": 7.0,
+      "mean": 1.7854,
+      "median": 2.0,
+      "std": 0.4263,
+      "value_counts": {
+        "2": 2719860,
+        "1": 753671,
+        "7": 1206,
+        "6": 489
+      }
+    },
+    "tpep_pickup_datetime": {
+      "dtype": "datetime64[us]",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": "2024-12-31 20:47:55",
+      "max": "2025-02-01 00:00:44"
+    },
+    "tpep_dropoff_datetime": {
+      "dtype": "datetime64[us]",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": "2024-12-18 07:52:40",
+      "max": "2025-02-01 23:44:11"
+    },
+    "passenger_count": {
+      "dtype": "float64",
+      "null_count": 540149,
+      "null_pct": 15.543,
+      "min": 0.0,
+      "max": 9.0,
+      "mean": 1.2979,
+      "median": 1.0,
+      "std": 0.7508
+    },
+    "trip_distance": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 276423.57,
+      "mean": 5.8551,
+      "median": 1.67,
+      "std": 564.6016
+    },
+    "RatecodeID": {
+      "dtype": "float64",
+      "null_count": 540149,
+      "null_pct": 15.543,
+      "min": 1.0,
+      "max": 99.0,
+      "mean": 2.4825,
+      "median": 1.0,
+      "std": 11.6328,
+      "value_counts": {
+        "1.0": 2756472,
+        "nan": 540149,
+        "2.0": 94420,
+        "99.0": 41963,
+        "5.0": 26501,
+        "3.0": 8622,
+        "4.0": 7092,
+        "6.0": 7
+      }
+    },
+    "store_and_fwd_flag": {
+      "dtype": "object",
+      "null_count": 540149,
+      "null_pct": 15.543,
+      "value_counts": {
+        "N": 2927431,
+        "None": 540149,
+        "Y": 7646
+      }
+    },
+    "PULocationID": {
+      "dtype": "int32",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": 1.0,
+      "max": 265.0,
+      "mean": 165.1916,
+      "median": 162.0,
+      "std": 64.5295
+    },
+    "DOLocationID": {
+      "dtype": "int32",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": 1.0,
+      "max": 265.0,
+      "mean": 164.1252,
+      "median": 162.0,
+      "std": 69.4017
+    },
+    "payment_type": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": 0.0,
+      "max": 5.0,
+      "mean": 1.0366,
+      "median": 1.0,
+      "std": 0.7013,
+      "value_counts": {
+        "1": 2444393,
+        "0": 540149,
+        "2": 390429,
+        "4": 76481,
+        "3": 23773,
+        "5": 1
+      }
+    },
+    "fare_amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -900.0,
+      "max": 863372.12,
+      "mean": 17.0818,
+      "median": 12.11,
+      "std": 463.4729
+    },
+    "extra": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -7.5,
+      "max": 15.0,
+      "mean": 1.3177,
+      "median": 0.0,
+      "std": 1.8615
+    },
+    "mta_tax": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -0.5,
+      "max": 10.5,
+      "mean": 0.4781,
+      "median": 0.5,
+      "std": 0.1375
+    },
+    "tip_amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -86.0,
+      "max": 400.0,
+      "mean": 2.9598,
+      "median": 2.45,
+      "std": 3.7797
+    },
+    "tolls_amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -126.94,
+      "max": 170.94,
+      "mean": 0.4493,
+      "median": 0.0,
+      "std": 2.0026
+    },
+    "improvement_surcharge": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": 0.9548,
+      "median": 1.0,
+      "std": 0.2782
+    },
+    "total_amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -901.0,
+      "max": 863380.37,
+      "mean": 25.6113,
+      "median": 19.95,
+      "std": 463.6585
+    },
+    "congestion_surcharge": {
+      "dtype": "float64",
+      "null_count": 540149,
+      "null_pct": 15.543,
+      "min": -2.5,
+      "max": 2.5,
+      "mean": 2.2252,
+      "median": 2.5,
+      "std": 0.904
+    },
+    "Airport_fee": {
+      "dtype": "float64",
+      "null_count": 540149,
+      "null_pct": 15.543,
+      "min": -1.75,
+      "max": 6.75,
+      "mean": 0.1239,
+      "median": 0.0,
+      "std": 0.4725
+    },
+    "cbd_congestion_fee": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "min": -0.75,
+      "max": 0.75,
+      "mean": 0.4834,
+      "median": 0.75,
+      "std": 0.3619
+    }
+  },
+  "known_unknown_assumption_limitation": [
+    {
+      "category": "KNOWN",
+      "entry": "TLC Jan 2025 Parquet contains trips with pickup dates outside January (Dec 31 2024 and Feb 1 2025 observed in manifest). This is a documented TLC batching pattern, not a download error. Trips are flagged 'out_of_month', counted (22 rows), and excluded from January metrics. They are not silently dropped \u2014 their count is visible here."
+    },
+    {
+      "category": "KNOWN",
+      "entry": "'passenger_count' is nullable per TLC data dictionary \u2014 vendors are not required to record it. Null passenger_count is not treated as a validation error; it is counted in the profile null_count only."
+    },
+    {
+      "category": "KNOWN",
+      "entry": "LocationIDs 264 (Unknown) and 265 (N/A) appear in trip data but have no entry in the Socrata zone lookup. Flagged separately as 'location_unknown' (28357 rows) so their volume is visible independently from out-of-range IDs ('location_invalid')."
+    },
+    {
+      "category": "ASSUMPTION",
+      "entry": "Maximum trip duration cutoff of 360 minutes (6 hours) is an FDE judgement call \u2014 no formal TLC threshold is published. Rationale: NYC's geographic bounds (longest metered route < 35 miles) make any genuine taxi trip under 6 hours. Trips exceeding this almost certainly represent drivers who forgot to close the meter (a known TLC data quality pattern)."
+    },
+    {
+      "category": "ASSUMPTION",
+      "entry": "Maximum trip distance cap of 100 miles is an FDE judgement call, not a TLC-published threshold. Rationale: the TLC standard metered service covers NYC metro; the furthest standard airport (JFK ~17 mi, Newark ~15 mi) and even Montauk (~120 mi, special negotiated rate) fall well below this. 100 miles captures all plausible metered trips while flagging odometer errors."
+    },
+    {
+      "category": "ASSUMPTION",
+      "entry": "Maximum fare_amount cap of $500 is an FDE judgement call. Rationale: TLC metered rate is ~$3.50/mile; at the 100-mile distance cap that yields ~$350 metered fare; adding ~$50 in tolls/surcharges gives ~$400. $500 provides headroom for edge cases while catching clearly impossible values. No TLC maximum published."
+    },
+    {
+      "category": "ASSUMPTION",
+      "entry": "Fare-per-mile outlier bounds ($1.50/mile lower, $50/mile upper) are FDE-set based on TLC rate card analysis, not derived from a formal statistical model of the full dataset. Lower bound: below TLC minimum metered rate suggests metering malfunction. Upper bound: above $50/mile is outside the plausible range even for very short, congested trips. May need calibration with multi-month data."
+    },
+    {
+      "category": "UNKNOWN",
+      "entry": "Whether negative 'fare_amount' records represent disputed fares, refunds, or data corruption at the vendor level. The TLC data dictionary does not document negative values. All negative fare_amount values are flagged 'fare_invalid' and excluded from metrics."
+    },
+    {
+      "category": "UNKNOWN",
+      "entry": "Whether TLC applies post-publication corrections to historical Parquet files. If they do, a re-download of the same month could produce a different row count or checksum. The manifest records the download timestamp and SHA-256 to make any such discrepancy detectable."
+    },
+    {
+      "category": "LIMITATION",
+      "entry": "No GPS coordinates are available in the public TLC dataset (removed since 2016). All spatial analysis is limited to zone-ID granularity (263 zones). Sub-zone patterns are not observable."
+    },
+    {
+      "category": "LIMITATION",
+      "entry": "'tip_amount' captures credit card tips only \u2014 cash tips are not recorded by vendors. Fare-per-mile consistency analysis uses 'fare_amount' (metered fare) rather than 'total_amount' to avoid this asymmetry distorting the metric."
+    }
+  ]
+}
