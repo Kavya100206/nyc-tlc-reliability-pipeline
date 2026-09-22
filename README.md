@@ -32,7 +32,7 @@ One composite index built from four sub-metrics:
 | # | Source | Retrieval Mode | What we pull |
 |---|---|---|---|
 | 1 | [NYC TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) | Bulk Parquet download (HTTP) | Yellow Taxi trips — January 2025 |
-| 2 | [NYC Open Data — Socrata](https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/2yv8-t2f9) | Socrata Open Data API | Taxi Zone lookup: LocationID → Borough/Zone |
+| 2 | [NYC Open Data — Socrata](https://data.cityofnewyork.us/resource/8meu-9t5y.json) | Socrata Open Data API | Taxi Zone lookup: LocationID → Borough/Zone |
 | 3 | [TLC Taxi Zone Lookup CSV](https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv) | Bulk CSV download (HTTP) | Fallback/reference zone table |
 
 See [`docs/source_map.md`](docs/source_map.md) for the full source map.
@@ -106,7 +106,7 @@ are saved alongside outputs so any analyst can audit exactly what was dropped an
 | Decision | Rationale |
 |---|---|
 | Yellow Taxi, January 2025 | Largest, most complete TLC dataset; Jan 2025 is recent and a single compact Parquet file (~50 MB). |
-| Socrata source = Taxi Zone Lookup (`2yv8-t2f9`) | Most natural "second retrieval mode" — zone data feeds the dimension table directly, unlike a duplicate trip subset. |
+| Socrata source = Taxi Zone Lookup (`8meu-9t5y`) | Most natural "second retrieval mode" — zone data feeds the dimension table directly. ID `8meu-9t5y` verified live Sep 2026 via Socrata catalog API; previously referenced IDs `755u-8jsi`/`2yv8-t2f9` both return 404. |
 | Markdown table for source map (Phase 1) | Reproducible, diffable, no tooling required; PNG rendered in final polish phase. |
 | `data/raw/` gitignored | Raw Parquet files are large binaries; manifests/checksums are committed instead. |
 | *(more added each phase)* | |

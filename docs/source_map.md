@@ -10,7 +10,7 @@
 | # | Business Question | Data Needed | Source System | Owner / Publisher | URL | Retrieval Mode | Grain | Update Cadence | Known Gaps / Risks |
 |---|---|---|---|---|---|---|---|---|---|
 | S1 | How many trips occurred, where, and when? | Trip records: pickup/dropoff datetime, LocationID, passenger count, distance | NYC TLC Trip Record Data — Yellow Taxi Parquet | NYC TLC (city agency) | `https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-01.parquet` | **Bulk Parquet download (HTTP)** | One row per trip | Monthly, ~2–3 months lag | No real-time feed; lat/lon dropped since 2016; vendor-reported (not independently verified) |
-| S2 | What zone/borough does each LocationID map to? | Zone lookup: LocationID → Zone name, Borough, service zone | NYC Open Data — Taxi Zones dataset (`2yv8-t2f9`) | NYC TLC via NYC Open Data (Socrata) | `https://data.cityofnewyork.us/resource/755u-8jsi.json` | **Socrata Open Data API (sodapy)** | One row per zone (263 zones total) | Rarely changes; treated as static dimension | Unknown how TLC handles zone retirements; 263 zones documented but S2 and S1 may not cover all |
+| S2 | What zone/borough does each LocationID map to? | Zone lookup: LocationID → Zone name, Borough, service zone | NYC Open Data — Taxi Zones dataset (`8meu-9t5y`) | NYC TLC via NYC Open Data (Socrata) | `https://data.cityofnewyork.us/resource/8meu-9t5y.json` | **Socrata Open Data API (sodapy)** | One row per zone (263 zones total) | Rarely changes; treated as static dimension | Unknown how TLC handles zone retirements; 263 zones documented but S2 and S1 may not cover all |
 | S3 | Zone lookup fallback / cross-validation | Same as S2 | TLC Taxi Zone Lookup CSV (static reference) | NYC TLC | `https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv` | **Bulk CSV download (HTTP)** | Same grain as S2 | Published alongside Parquet data dictionaries | Used only if Socrata API is unavailable; not a separate retrieval mode for rubric purposes |
 
 ---
@@ -59,8 +59,9 @@ integers (the only spatial reference in the trip data) to human-readable zone na
 boroughs. Pulling via Socrata API satisfies the "second distinct retrieval mode" requirement
 and ensures the zone table is fetched programmatically rather than hand-copied.
 
-**Socrata dataset:** `755u-8jsi` (NYC Taxi Zones)
-**API endpoint:** `https://data.cityofnewyork.us/resource/755u-8jsi.json`
+**Socrata dataset:** `8meu-9t5y` (NYC Taxi Zones — verified live via Socrata catalog API, Sep 2026)
+**API endpoint:** `https://data.cityofnewyork.us/resource/8meu-9t5y.json`
+> **Note on ID discrepancy:** IDs `755u-8jsi` and `2yv8-t2f9` (referenced in some TLC tutorials) both return 404 as of Sep 2026. The correct live ID `8meu-9t5y` was verified by querying the Socrata discovery API (`api.us.socrata.com/api/catalog/v1`) and confirmed by a live data fetch returning `locationid`, `borough`, `zone`.
 
 **Expected columns:**
 

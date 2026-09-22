@@ -7,7 +7,7 @@
 | Source ID | System | Retrieval Mode | Grain | → Feeds |
 |---|---|---|---|---|
 | **S1** | NYC TLC Yellow Taxi Parquet (Jan 2025) | Bulk HTTP download | 1 row / trip | `fact_trips` table |
-| **S2** | NYC Open Data Socrata — Taxi Zones (`755u-8jsi`) | Socrata Open Data API | 1 row / zone (263 zones) | `dim_zones` table |
+| **S2** | NYC Open Data Socrata — Taxi Zones (`8meu-9t5y`) | Socrata Open Data API | 1 row / zone (263 zones) | `dim_zones` table |
 | **S3** | TLC Taxi Zone Lookup CSV (fallback) | Bulk HTTP download | 1 row / zone | `dim_zones` (if S2 unavailable) |
 
 ## Text Flow Diagram
