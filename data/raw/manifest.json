@@ -1,0 +1,41 @@
+{
+  "trip_2025-01": {
+    "source": "S1",
+    "retrieval_mode": "bulk_http_parquet",
+    "description": "NYC TLC Yellow Taxi trip records",
+    "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-01.parquet",
+    "local_path": "data/raw/yellow_tripdata_2025-01.parquet",
+    "filename": "yellow_tripdata_2025-01.parquet",
+    "month": "2025-01",
+    "downloaded_at": "2026-09-22T16:51:29.608823+00:00",
+    "file_size_bytes": 59158238,
+    "file_size_mb": 59.16,
+    "row_count": 3475226,
+    "num_row_groups": 4,
+    "pickup_date_min": "2024-12-31 20:47:55",
+    "pickup_date_max": "2025-02-01 00:00:44",
+    "sha256": "9af277e4c0d3f9deb30644da822981e1e7df6af58313170fd3aa8a474485488a",
+    "elapsed_seconds": 11.5
+  },
+  "zone_lookup_socrata": {
+    "source": "S2",
+    "retrieval_mode": "socrata_api",
+    "description": "NYC Taxi Zone lookup \u2014 LocationID \u2192 Borough/Zone name",
+    "dataset_id": "8meu-9t5y",
+    "domain": "data.cityofnewyork.us",
+    "url": "https://data.cityofnewyork.us/resource/8meu-9t5y.json",
+    "local_path": "data/reference/taxi_zones_socrata.json",
+    "fetched_at": "2026-09-22T16:51:32.901968+00:00",
+    "row_count": 263,
+    "columns": [
+      "the_geom",
+      "shape_leng",
+      "shape_area",
+      "zone",
+      "locationid",
+      "borough"
+    ],
+    "elapsed_seconds": 3.1,
+    "app_token_used": false
+  }
+}

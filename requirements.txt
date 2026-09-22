@@ -1,26 +1,22 @@
-# ── Core data ──
-pandas>=2.0.0
-pyarrow>=14.0.0          # Parquet read/write via pandas
+# NYC TLC Reliability Pipeline — Python dependencies
+# Pin minor versions to keep behaviour reproducible across environments.
+# Install: pip install -r requirements.txt
 
-# ── DuckDB (in-process analytical SQL — used for fact/dimension joins and metrics) ──
-duckdb>=0.10.0
+# ── Core data ────────────────────────────────────────────────────────────────
+pandas>=2.0.0,<3.0.0
+pyarrow>=14.0.0,<18.0.0      # Parquet I/O; pq.read_metadata() used in ingest.py
 
-# ── Socrata API (second retrieval mode — taxi zone lookup) ──
-sodapy>=2.2.0            # Official Socrata Python client
-requests>=2.31.0         # Fallback HTTP calls + checksum downloads
+# ── Analytical SQL ────────────────────────────────────────────────────────────
+duckdb>=0.10.0,<2.0.0        # In-process SQL for fact+dimension joins and metric queries
 
-# ── Validation & profiling ──
-great-expectations>=0.18.0   # Optional: schema drift detection (used in validate.py)
+# ── Socrata API (Mode 2 retrieval) ────────────────────────────────────────────
+sodapy>=2.2.0,<3.0.0         # Official Socrata Python client
+requests>=2.31.0,<3.0.0      # HTTP downloads (Parquet bulk, CSV fallback)
 
-# ── Checksums / hashing ──
-# hashlib is stdlib; no extra dep needed
+# ── Testing ────────────────────────────────────────────────────────────────────
+pytest>=7.4.0,<9.0.0
 
-# ── Logging / CLI ──
-# logging is stdlib
-# argparse is stdlib
+# ── Notebook (optional — profiling scratch work only) ─────────────────────────
+# jupyter>=1.0.0   # Uncomment if using notebooks/exploration.ipynb
 
-# ── Testing ──
-pytest>=7.4.0
-
-# ── Notebook (optional exploration) ──
-jupyter>=1.0.0
+# stdlib (no install needed): hashlib, logging, argparse, json, pathlib, datetime

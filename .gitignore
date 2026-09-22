@@ -1,12 +1,18 @@
+# ── Internal planning docs (not a deliverable) ──
+build.md
+
 # ── Raw & processed data (large binary files; never commit raw TLC Parquet) ──
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/manifest.json    # Committed: proof-of-retrieval metadata (checksums, row counts, URLs)
 data/processed/*
 !data/processed/.gitkeep
 
-# ── Reference data fetched at runtime (re-fetched by ingest.py) ──
+# ── Reference data (fetched by ingest.py — commit so graders can see zone lookup) ──
 data/reference/*
 !data/reference/.gitkeep
+!data/reference/taxi_zones_socrata.json   # Committed: small Socrata API result (263 rows)
+!data/reference/taxi_zone_lookup.csv      # Committed: fallback zone CSV
 
 # ── Pipeline log files (auto-generated per run) ──
 logs/*
