@@ -1,0 +1,17 @@
+metric_name,kpi_component,group,value,unit,description
+data_reliability_pct,M1_reliability,MONTH,92.563,%,% of raw trips passing all hard validation rules (feeding model.py)
+valid_trip_count,M1_reliability,MONTH,3216774,trips,Absolute count of valid trips used in metrics computation
+raw_trip_count,M1_reliability,MONTH,3475226,trips,Total rows in source Parquet (before any filtering)
+anomaly_rate_pct,M5_anomaly,MONTH,7.961,%,% of raw trips with at least one flag (hard excluded + soft retained)
+hard_flagged_count,M5_anomaly,MONTH,258452,trips,Trips excluded from all metric computations (failed hard rules)
+soft_only_flagged_count,M5_anomaly,MONTH,18210,trips,"Anomalous but retained trips (fare-per-mile outlier, passenger suspect)"
+flag_count_out_of_month,M5_anomaly,FLAG,22,trips,Out-of-month trips (Dec/Feb boundary — TLC batching pattern)
+flag_count_temporal_invalid,M5_anomaly,FLAG,2051,trips,Temporal invalid (dropoff ≤ pickup — data corruption)
+flag_count_duration_invalid,M5_anomaly,FLAG,41314,trips,Duration invalid (< 1 min or > 360 min — meter error)
+flag_count_distance_invalid,M5_anomaly,FLAG,91055,trips,Distance invalid (≤ 0 or > 100 miles — odometer error)
+flag_count_fare_invalid,M5_anomaly,FLAG,145037,trips,"Fare invalid (negative, zero-on-paid-trip, or > $500)"
+flag_count_location_unknown,M5_anomaly,FLAG,28357,trips,Location unknown (ID 264/265 — no zone mapping available)
+flag_count_location_invalid,M5_anomaly,FLAG,92,trips,Location invalid (ID outside known range — data corruption)
+flag_count_fare_per_mile_outlier,M5_anomaly,FLAG,155412,trips,Fare-per-mile outlier (< $1.50/mi or > $50/mi — soft flag)
+flag_count_passenger_count_suspect,M5_anomaly,FLAG,18,trips,Passenger count suspect (> 6 — physically impossible; soft flag)
+flag_count_zero_distance_with_fare,M5_anomaly,FLAG,75846,trips,Zero distance with fare (informational; caught by distance_invalid)

@@ -1,0 +1,7 @@
+pu_borough,trip_count,fare_trips_with_distance,fare_per_mile_mean,fare_per_mile_std,fare_per_mile_min,fare_per_mile_max,fare_per_mile_median,fare_per_mile_low_2std,fare_per_mile_high_2std,fare_per_mile_outlier_count,fare_per_mile_outlier_pct
+Bronx,12691,12691,18.2536,187.8012,0.0,7000.0,4.2941,-357.3488,393.8561,356.0,2.805
+Brooklyn,55174,55174,20.9798,195.3071,0.0,6706.0,5.5435,-369.6344,411.594,1572.0,2.849
+EWR,16,16,106.9302,285.2338,4.1939,1000.0,5.3278,-463.5373,677.3977,2.0,12.5
+Manhattan,2890205,2890205,12.4884,94.8315,0.0,11776.0,7.451,-177.1747,202.1514,14700.0,0.509
+Queens,260122,260122,7.0757,88.5023,0.0,8500.0,4.0982,-169.929,184.0804,1543.0,0.593
+Staten Island,197,197,36.1576,367.4151,0.0009,4958.0,3.5736,-698.6726,770.9878,61.0,30.964

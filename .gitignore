@@ -15,13 +15,14 @@ data/reference/*
 !data/reference/taxi_zones_socrata.json   # Committed: small Socrata API result (263 rows)
 !data/reference/taxi_zone_lookup.csv      # Committed: fallback zone CSV
 
+# ── Pipeline outputs (CSV metrics committed; large generated files gitignored) ──
+outputs/*
+!outputs/.gitkeep
+!outputs/*.csv    # Committed: metric tables are required deliverables
+
 # ── Pipeline log files (auto-generated per run) ──
 logs/*
 !logs/.gitkeep
-
-# ── Pipeline outputs (generated; committed only when explicitly staged) ──
-outputs/*
-!outputs/.gitkeep
 
 # ── Python ──
 __pycache__/
