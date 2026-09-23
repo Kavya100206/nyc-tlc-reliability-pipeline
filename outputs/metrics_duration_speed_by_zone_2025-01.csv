@@ -132,7 +132,7 @@ Bronx,Claremont/Bathgate,12,13,54.28,11.43,10.446
 Bronx,Claremont/Bathgate,13,14,23.53,11.04,6.677
 Bronx,Claremont/Bathgate,14,24,31.28,9.56,6.525
 Bronx,Claremont/Bathgate,15,8,32.4,8.58,7.651
-Bronx,Claremont/Bathgate,16,12,29.37,9.95,5.783
+Bronx,Claremont/Bathgate,16,12,29.37,9.95,5.782
 Bronx,Claremont/Bathgate,17,5,35.15,8.02,5.034
 Bronx,Claremont/Bathgate,18,2,65.41,11.26,11.45
 Bronx,Claremont/Bathgate,19,4,20.66,11.75,7.833
@@ -307,7 +307,7 @@ Bronx,Highbridge,6,42,35.3,16.84,9.024
 Bronx,Highbridge,7,71,25.5,14.68,7.43
 Bronx,Highbridge,8,43,27.12,12.32,7.03
 Bronx,Highbridge,9,31,23.35,12.0,5.973
-Bronx,Highbridge,10,12,35.64,12.92,8.578
+Bronx,Highbridge,10,12,35.64,12.92,8.577
 Bronx,Highbridge,11,21,20.92,11.36,6.413
 Bronx,Highbridge,12,23,32.05,12.48,7.129
 Bronx,Highbridge,13,18,20.88,10.64,5.508
@@ -887,7 +887,7 @@ Bronx,Williamsbridge/Olinville,13,20,37.74,11.6,9.966
 Bronx,Williamsbridge/Olinville,14,26,54.53,11.62,9.956
 Bronx,Williamsbridge/Olinville,15,13,36.35,11.16,8.627
 Bronx,Williamsbridge/Olinville,16,7,37.25,11.52,7.59
-Bronx,Williamsbridge/Olinville,17,4,24.82,11.31,6.712
+Bronx,Williamsbridge/Olinville,17,4,24.82,11.31,6.713
 Bronx,Williamsbridge/Olinville,18,16,41.33,15.98,11.113
 Bronx,Williamsbridge/Olinville,19,4,32.36,17.93,9.133
 Bronx,Williamsbridge/Olinville,20,9,26.58,16.8,9.25
@@ -905,7 +905,7 @@ Bronx,Woodlawn/Wakefield,9,19,37.37,17.96,10.548
 Bronx,Woodlawn/Wakefield,10,15,36.7,13.66,10.152
 Bronx,Woodlawn/Wakefield,11,14,30.53,20.23,12.307
 Bronx,Woodlawn/Wakefield,12,17,41.15,17.31,10.546
-Bronx,Woodlawn/Wakefield,13,16,35.83,16.8,11.892
+Bronx,Woodlawn/Wakefield,13,16,35.83,16.8,11.893
 Bronx,Woodlawn/Wakefield,14,9,22.83,19.27,7.829
 Bronx,Woodlawn/Wakefield,15,12,66.73,16.31,15.873
 Bronx,Woodlawn/Wakefield,16,5,40.52,14.56,8.934
@@ -953,7 +953,7 @@ Brooklyn,Bay Ridge,13,47,28.58,11.96,7.846
 Brooklyn,Bay Ridge,14,30,33.41,11.62,6.644
 Brooklyn,Bay Ridge,15,39,35.02,10.89,7.912
 Brooklyn,Bay Ridge,16,28,27.43,10.76,7.875
-Brooklyn,Bay Ridge,17,24,23.27,12.15,6.233
+Brooklyn,Bay Ridge,17,24,23.27,12.15,6.232
 Brooklyn,Bay Ridge,18,14,18.2,12.8,4.894
 Brooklyn,Bay Ridge,19,14,26.71,14.18,6.741
 Brooklyn,Bay Ridge,20,20,17.33,19.72,6.022
@@ -1214,7 +1214,7 @@ Brooklyn,Bushwick South,12,54,29.66,8.93,5.03
 Brooklyn,Bushwick South,13,61,31.35,8.94,4.899
 Brooklyn,Bushwick South,14,45,27.87,8.56,5.458
 Brooklyn,Bushwick South,15,67,27.17,8.47,5.62
-Brooklyn,Bushwick South,16,40,27.38,6.59,4.226
+Brooklyn,Bushwick South,16,40,27.38,6.59,4.225
 Brooklyn,Bushwick South,17,43,29.5,8.54,4.901
 Brooklyn,Bushwick South,18,42,22.11,9.01,4.003
 Brooklyn,Bushwick South,19,38,19.48,9.24,4.172
@@ -1426,7 +1426,7 @@ Brooklyn,Cypress Hills,10,35,31.8,9.84,7.168
 Brooklyn,Cypress Hills,11,20,34.67,9.96,6.547
 Brooklyn,Cypress Hills,12,22,29.65,10.03,5.626
 Brooklyn,Cypress Hills,13,23,37.05,11.93,8.091
-Brooklyn,Cypress Hills,14,16,25.38,9.19,4.688
+Brooklyn,Cypress Hills,14,16,25.38,9.19,4.687
 Brooklyn,Cypress Hills,15,15,31.37,9.6,5.469
 Brooklyn,Cypress Hills,16,12,25.86,9.24,5.969
 Brooklyn,Cypress Hills,17,9,33.83,8.58,5.137
@@ -1550,8 +1550,8 @@ Brooklyn,East Flatbush/Remsen Village,15,55,18.48,8.84,3.597
 Brooklyn,East Flatbush/Remsen Village,16,51,25.18,8.72,4.513
 Brooklyn,East Flatbush/Remsen Village,17,28,30.64,8.54,5.325
 Brooklyn,East Flatbush/Remsen Village,18,18,22.85,9.38,4.507
-Brooklyn,East Flatbush/Remsen Village,19,28,27.15,10.13,6.103
-Brooklyn,East Flatbush/Remsen Village,20,24,18.43,10.76,3.888
+Brooklyn,East Flatbush/Remsen Village,19,28,27.15,10.13,6.102
+Brooklyn,East Flatbush/Remsen Village,20,24,18.43,10.76,3.887
 Brooklyn,East Flatbush/Remsen Village,21,13,15.45,10.93,3.731
 Brooklyn,East Flatbush/Remsen Village,22,24,15.66,12.11,4.143
 Brooklyn,East Flatbush/Remsen Village,23,23,19.35,12.87,6.312
@@ -2040,7 +2040,7 @@ Brooklyn,Prospect Heights,6,15,33.67,11.96,6.951
 Brooklyn,Prospect Heights,7,34,23.46,9.3,5.265
 Brooklyn,Prospect Heights,8,47,28.2,8.24,4.399
 Brooklyn,Prospect Heights,9,27,28.77,8.68,4.012
-Brooklyn,Prospect Heights,10,20,38.99,6.21,4.292
+Brooklyn,Prospect Heights,10,20,38.99,6.21,4.293
 Brooklyn,Prospect Heights,11,27,38.8,7.89,6.235
 Brooklyn,Prospect Heights,12,18,17.71,9.74,4.903
 Brooklyn,Prospect Heights,13,30,30.81,9.53,5.408
@@ -2380,7 +2380,7 @@ Manhattan,Battery Park,6,2,45.49,26.23,19.55
 Manhattan,Battery Park,7,4,10.77,11.82,2.895
 Manhattan,Battery Park,8,10,8.28,8.39,1.654
 Manhattan,Battery Park,9,13,15.15,11.59,3.916
-Manhattan,Battery Park,10,20,15.77,14.28,4.001
+Manhattan,Battery Park,10,20,15.77,14.28,4.0
 Manhattan,Battery Park,11,53,16.45,12.8,3.919
 Manhattan,Battery Park,12,90,17.58,12.96,4.04
 Manhattan,Battery Park,13,118,18.87,12.7,4.282
@@ -3386,7 +3386,7 @@ Manhattan,Randalls Island,9,1,32.83,20.28,11.1
 Manhattan,Randalls Island,10,3,9.45,32.13,5.087
 Manhattan,Randalls Island,11,2,32.47,29.54,7.22
 Manhattan,Randalls Island,12,3,17.02,22.77,7.397
-Manhattan,Randalls Island,13,4,27.76,19.66,9.943
+Manhattan,Randalls Island,13,4,27.76,19.66,9.942
 Manhattan,Randalls Island,14,4,44.49,12.22,10.235
 Manhattan,Randalls Island,15,5,27.32,13.86,6.486
 Manhattan,Randalls Island,16,9,24.8,15.57,5.809
@@ -3419,7 +3419,7 @@ Manhattan,Roosevelt Island,19,10,29.23,11.99,6.57
 Manhattan,Roosevelt Island,20,9,29.07,15.47,7.549
 Manhattan,Roosevelt Island,21,5,8.35,12.22,4.418
 Manhattan,Roosevelt Island,22,8,29.83,19.08,9.116
-Manhattan,Roosevelt Island,23,8,15.88,15.8,4.012
+Manhattan,Roosevelt Island,23,8,15.88,15.8,4.013
 Manhattan,Seaport,0,293,12.17,13.44,3.628
 Manhattan,Seaport,1,195,12.03,13.8,3.695
 Manhattan,Seaport,2,104,12.31,15.04,3.725
@@ -3442,7 +3442,7 @@ Manhattan,Seaport,18,452,14.58,10.6,3.344
 Manhattan,Seaport,19,430,13.93,10.98,3.221
 Manhattan,Seaport,20,432,13.57,12.55,3.569
 Manhattan,Seaport,21,446,13.81,14.21,3.823
-Manhattan,Seaport,22,368,12.88,13.9,3.672
+Manhattan,Seaport,22,368,12.88,13.9,3.673
 Manhattan,Seaport,23,327,13.45,13.08,3.746
 Manhattan,SoHo,0,1298,9.76,10.55,2.27
 Manhattan,SoHo,1,1138,10.21,11.16,2.448
@@ -3976,7 +3976,7 @@ Queens,Baisley Park,16,80,47.68,18.71,14.668
 Queens,Baisley Park,17,36,39.48,20.18,13.507
 Queens,Baisley Park,18,35,38.03,21.91,11.371
 Queens,Baisley Park,19,47,27.08,25.69,11.041
-Queens,Baisley Park,20,48,25.64,27.65,11.307
+Queens,Baisley Park,20,48,25.64,27.65,11.308
 Queens,Baisley Park,21,46,24.97,29.79,11.123
 Queens,Baisley Park,22,57,24.52,23.76,10.845
 Queens,Baisley Park,23,51,21.1,26.33,9.926
@@ -4115,7 +4115,7 @@ Queens,College Point,6,6,21.83,16.06,6.857
 Queens,College Point,7,11,25.03,13.85,7.293
 Queens,College Point,8,10,30.23,15.7,7.849
 Queens,College Point,9,12,28.13,20.42,9.289
-Queens,College Point,10,8,24.29,19.18,8.043
+Queens,College Point,10,8,24.29,19.18,8.042
 Queens,College Point,11,7,42.93,13.56,8.381
 Queens,College Point,12,5,25.33,22.35,11.314
 Queens,College Point,13,8,30.56,18.38,8.954
@@ -4181,7 +4181,7 @@ Queens,East Elmhurst,1,115,17.1,30.02,8.841
 Queens,East Elmhurst,2,29,18.67,31.54,9.481
 Queens,East Elmhurst,3,7,15.25,28.26,7.529
 Queens,East Elmhurst,4,18,17.87,27.53,9.131
-Queens,East Elmhurst,5,20,20.4,20.82,7.271
+Queens,East Elmhurst,5,20,20.4,20.82,7.27
 Queens,East Elmhurst,6,25,21.87,16.76,7.844
 Queens,East Elmhurst,7,106,30.07,18.44,8.919
 Queens,East Elmhurst,8,237,32.03,17.5,9.259
@@ -4326,7 +4326,7 @@ Queens,Flushing Meadows-Corona Park,8,31,15.98,34.25,8.889
 Queens,Flushing Meadows-Corona Park,9,12,18.19,24.29,8.597
 Queens,Flushing Meadows-Corona Park,10,19,16.93,31.15,8.455
 Queens,Flushing Meadows-Corona Park,11,12,16.92,26.01,7.57
-Queens,Flushing Meadows-Corona Park,12,16,19.67,27.27,7.173
+Queens,Flushing Meadows-Corona Park,12,16,19.67,27.27,7.172
 Queens,Flushing Meadows-Corona Park,13,16,16.28,30.05,8.213
 Queens,Flushing Meadows-Corona Park,14,13,22.68,27.46,10.132
 Queens,Flushing Meadows-Corona Park,15,12,23.27,21.05,7.704
@@ -4526,7 +4526,7 @@ Queens,Howard Beach,6,10,58.63,8.42,9.474
 Queens,Howard Beach,7,14,24.56,13.21,5.391
 Queens,Howard Beach,8,21,26.88,13.21,8.083
 Queens,Howard Beach,9,8,23.42,13.46,5.925
-Queens,Howard Beach,10,16,41.76,14.06,9.677
+Queens,Howard Beach,10,16,41.76,14.06,9.678
 Queens,Howard Beach,11,7,24.62,16.25,8.411
 Queens,Howard Beach,12,17,25.2,18.51,8.165
 Queens,Howard Beach,13,14,28.34,13.19,9.586
@@ -4660,7 +4660,7 @@ Queens,Kew Gardens,16,41,14.3,15.87,5.242
 Queens,Kew Gardens,17,30,14.88,15.74,4.521
 Queens,Kew Gardens,18,24,12.78,18.47,4.868
 Queens,Kew Gardens,19,14,13.73,22.19,5.349
-Queens,Kew Gardens,20,12,17.6,15.48,6.052
+Queens,Kew Gardens,20,12,17.6,15.48,6.053
 Queens,Kew Gardens,21,21,11.18,21.83,4.538
 Queens,Kew Gardens,22,28,16.79,18.53,5.995
 Queens,Kew Gardens,23,24,11.89,18.63,5.925
@@ -5262,7 +5262,7 @@ Queens,Springfield Gardens South,8,31,46.27,14.48,11.696
 Queens,Springfield Gardens South,9,11,21.72,24.38,10.864
 Queens,Springfield Gardens South,10,19,38.72,18.0,11.959
 Queens,Springfield Gardens South,11,19,40.02,18.2,11.334
-Queens,Springfield Gardens South,12,16,23.16,19.22,9.232
+Queens,Springfield Gardens South,12,16,23.16,19.22,9.233
 Queens,Springfield Gardens South,13,19,32.22,22.53,10.507
 Queens,Springfield Gardens South,14,24,17.55,18.4,8.061
 Queens,Springfield Gardens South,15,34,27.53,15.56,8.93
@@ -5270,7 +5270,7 @@ Queens,Springfield Gardens South,16,24,41.19,19.13,13.175
 Queens,Springfield Gardens South,17,18,36.17,20.94,12.489
 Queens,Springfield Gardens South,18,22,35.87,21.67,14.426
 Queens,Springfield Gardens South,19,21,32.82,26.56,13.054
-Queens,Springfield Gardens South,20,20,28.86,25.39,12.507
+Queens,Springfield Gardens South,20,20,28.86,25.39,12.508
 Queens,Springfield Gardens South,21,38,30.64,26.91,13.81
 Queens,Springfield Gardens South,22,26,23.45,32.82,14.889
 Queens,Springfield Gardens South,23,32,25.85,30.6,12.292

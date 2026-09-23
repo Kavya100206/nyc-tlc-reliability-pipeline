@@ -44,50 +44,99 @@ nyc-tlc-reliability-pipeline/
 ├── README.md
 ├── data/
 │   ├── raw/              # Untouched downloaded files (gitignored — use ingest.py to fetch)
-│   ├── reference/        # Taxi zone lookup CSV and Socrata pull
-│   └── processed/        # Validated/cleaned outputs, validation report JSON
-├── src/
-│   ├── ingest.py         # Retrieval: bulk Parquet download + Socrata API pull
-│   ├── validate.py       # Profiling + business-oriented validation rules
-│   ├── model.py          # Entity/event modeling, fact+dimension joins (DuckDB)
-│   ├── metrics.py        # KPI calculations (5 metrics tied to the index)
-│   └── pipeline.py       # Orchestrates ingest→validate→model→metrics with logging
-├── notebooks/
-│   └── exploration.ipynb # Scratch profiling (not the source of truth)
+│   ├── raw/manifest.json # Retrieval proof: checksums, row counts, date coverage, URLs
+│   ├── reference/        # Taxi zone lookup CSV and Socrata pull (committed)
+│   └── processed/        # validation_report_<month>.json (committed); validated Parquet (gitignored)
 ├── diagrams/
 │   ├── source_map.md     # Source map table (PNG rendered in polish phase)
 │   └── data_model.md     # Entity-relationship / event model (PNG in polish phase)
 ├── docs/
 │   └── source_map.md     # Full source map with grain, gaps, and business justification
-├── logs/                 # Auto-generated per run (gitignored)
+├── logs/                 # Auto-generated per run (gitignored); one file per execution
+├── outputs/              # Committed metric CSVs (one set per processed month)
+│   ├── metrics_<month>.csv                       # M1 + M5 scalar summary
+│   ├── metrics_duration_speed_<month>.csv        # M2 + M3 by borough × hour
+│   ├── metrics_duration_speed_by_zone_<month>.csv # M2 + M3 supplementary by zone × hour
+│   └── metrics_fare_<month>.csv                  # M4 fare-per-mile consistency by borough
+├── src/
+│   ├── ingest.py         # Retrieval: bulk Parquet download + Socrata API pull + CSV fallback
+│   ├── validate.py       # Profiling + 7 hard + 3 soft validation rules + KUAL report
+│   ├── model.py          # Entity/event model, fact+dimension tables in DuckDB (in-memory)
+│   ├── metrics.py        # 5 KPI metric queries (M1–M5), writes 4 output CSVs
+│   └── pipeline.py       # Orchestrates all stages with dual logging + idempotency
 ├── tests/
-│   └── test_validate.py  # Unit tests for validation rules
-├── outputs/              # metrics_<month>.csv per processed month
+│   ├── test_validate.py  # 49 unit tests for all validation rules (synthetic data)
+│   └── test_pipeline.py  # Pipeline unit tests + @integration end-to-end smoke tests
 ├── requirements.txt
 └── .gitignore
 ```
 
 ## Setup & Run
 
+### Prerequisites
+
 ```bash
-# 1. Clone
-git clone <repo-url>
+git clone https://github.com/Kavya100206/nyc-tlc-reliability-pipeline.git
 cd nyc-tlc-reliability-pipeline
-
-# 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Run the full pipeline (fetches data, validates, models, outputs metrics)
-python src/pipeline.py --month 2025-01
-
-# 4. Outputs land in outputs/metrics_2025-01.csv
-#    Logs land in logs/pipeline_run_<timestamp>.log
-#    Validation report in data/processed/validation_report_2025-01.json
 ```
 
-> **Note:** `data/raw/` is gitignored. The pipeline's ingest step downloads the raw
-> Parquet file on first run and skips re-download if the file already exists and the
-> checksum matches (idempotent).
+### One-line full pipeline run
+
+```bash
+python src/pipeline.py --month 2025-01
+```
+
+Cold run (~22s): downloads 59 MB Parquet + zone lookup, profiles + validates 3.5M rows,
+builds DuckDB model, computes 5 KPI metrics, writes 4 CSV files.  
+Warm run (~0.8s): checksum match skips download; existing outputs skip validate + metrics.
+
+### Individual stages
+
+```bash
+python src/ingest.py   --month 2025-01   # download raw Parquet + zone lookup
+python src/validate.py --month 2025-01   # profile + validate → report JSON
+python src/model.py    --month 2025-01   # build DuckDB model, print schema
+python src/metrics.py  --month 2025-01   # compute KPI metrics → output CSVs
+```
+
+Or use the `--step` flag in the orchestrator:
+
+```bash
+python src/pipeline.py --month 2025-01 --step ingest    # ingest only
+python src/pipeline.py --month 2025-01 --step validate  # validate only
+python src/pipeline.py --month 2025-01 --step metrics   # metrics only
+```
+
+### Force re-run (ignore existing outputs)
+
+```bash
+python src/pipeline.py --month 2025-01 --force
+```
+
+### Tests
+
+```bash
+pytest tests/                              # all fast unit tests (no real data needed)
+pytest tests/ -m integration              # full end-to-end integration test
+pytest tests/test_validate.py -v          # 49 validation rule unit tests
+pytest tests/test_pipeline.py -v          # pipeline orchestration unit tests
+```
+
+### Output files
+
+| File | What it contains |
+|---|---|
+| `data/raw/manifest.json` | Retrieval proof: checksums, row counts, URLs, date coverage |
+| `data/processed/validation_report_2025-01.json` | Profiling snapshot + flag counts + KUAL entries |
+| `outputs/metrics_2025-01.csv` | M1 (data reliability %) + M5 (anomaly rate %) — scalar summary |
+| `outputs/metrics_duration_speed_2025-01.csv` | M2 + M3: median duration + speed by borough × hour |
+| `outputs/metrics_duration_speed_by_zone_2025-01.csv` | M2 + M3 supplementary: zone × hour (1,668 low-n zone-hours visible) |
+| `outputs/metrics_fare_2025-01.csv` | M4: fare-per-mile mean, std, outlier% by borough |
+| `logs/pipeline_2025-01_<timestamp>.log` | Full pipeline log, one file per run (gitignored) |
+
+> **Note:** `data/raw/` is gitignored. The ingest step downloads the raw Parquet on first run
+> and skips re-download on subsequent runs if the checksum matches (idempotent by design).
 
 ## What Business Decision Does This Support?
 
@@ -124,4 +173,4 @@ are saved alongside outputs so any analyst can audit exactly what was dropped an
 | *(more added after profiling)* | |
 
 ---
-*Pipeline version: Phase 1 (Class 4 — Source Understanding). See `build.md` for the full build sequence.*
+*Pipeline version: Phase 5 (Class 8 — Dependable Pipeline). All 5 phases complete. See `build.md` for the full build sequence.*

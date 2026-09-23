@@ -118,6 +118,7 @@ def _save_manifest(manifest: dict) -> None:
 def download_bulk_trip_file(
     month: str,
     dest_dir: Path = Path("data/raw"),
+    force: bool = False,
 ) -> Path:
     """
     Download NYC TLC Yellow Taxi Parquet for the given month (YYYY-MM).
@@ -153,7 +154,7 @@ def download_bulk_trip_file(
     manifest_key = f"trip_{month}"
 
     # ── Idempotency check ──────────────────────────────────────────────────────
-    if dest_path.exists() and manifest_key in manifest:
+    if not force and dest_path.exists() and manifest_key in manifest:
         recorded = manifest[manifest_key].get("sha256")
         logger.info("File already present: %s — verifying SHA-256...", filename)
         actual = sha256_file(dest_path)
@@ -174,6 +175,8 @@ def download_bulk_trip_file(
                 recorded[:12],
                 actual[:12],
             )
+    elif force and dest_path.exists():
+        logger.info("--force set — re-downloading despite existing file: %s", filename)
 
     # ── Download ───────────────────────────────────────────────────────────────
     logger.info("Downloading: %s", url)
@@ -466,7 +469,7 @@ def download_zone_lookup_csv(
 
 
 # ── Orchestrated ingest ────────────────────────────────────────────────────────
-def run_ingest(month: str) -> dict:
+def run_ingest(month: str, force: bool = False) -> dict:
     """
     Run both retrieval modes for a given month. Called by pipeline.py.
 
@@ -477,13 +480,14 @@ def run_ingest(month: str) -> dict:
         The fallback is explicit, logged, and manifested — not silent.
 
     Args:
-        month: "YYYY-MM", e.g. "2025-01"
+        month : "YYYY-MM", e.g. "2025-01"
+        force : if True, re-download even if local files + checksums already match
 
     Returns:
         dict with keys: trip_parquet (Path), zone_lookup (Path), zone_lookup_mode (str)
     """
     logger.info("══════════════════════════════════════════════")
-    logger.info(" INGEST START — month: %s", month)
+    logger.info(" INGEST START — month: %s | force: %s", month, force)
     logger.info("══════════════════════════════════════════════")
     t_total = time.time()
 
@@ -491,7 +495,7 @@ def run_ingest(month: str) -> dict:
 
     # ── Mode 1: Bulk Parquet — no fallback; failure is fatal ──────────────────
     logger.info("─── Mode 1: Bulk Parquet download (S1) ───")
-    result["trip_parquet"] = download_bulk_trip_file(month)
+    result["trip_parquet"] = download_bulk_trip_file(month, force=force)
 
     # ── Mode 2: Socrata API — explicit fallback to CSV ────────────────────────
     logger.info("─── Mode 2: Socrata API zone lookup (S2) ───")

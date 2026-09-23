@@ -511,6 +511,7 @@ def run_validate(
     raw_dir: Path = Path("data/raw"),
     ref_dir: Path = Path("data/reference"),
     processed_dir: Path = Path("data/processed"),
+    force: bool = False,
 ) -> dict:
     """
     Run profiling + validation for a given month.
@@ -539,9 +540,22 @@ def run_validate(
     report_path = processed_dir / f"validation_report_{month}.json"
 
     logger.info("══════════════════════════════════════════════")
-    logger.info(" VALIDATE START — month: %s", month)
+    logger.info(" VALIDATE START — month: %s | force: %s", month, force)
     logger.info("══════════════════════════════════════════════")
     t0 = time.time()
+
+    # ── Idempotency skip ──────────────────────────────────────────
+    # Validation is deterministic: same input Parquet + same rules = same output.
+    # Skip if both output files exist and force=False (saves ~6s on warm reruns).
+    # Run --force to re-validate even if outputs exist.
+    if not force and validated_path.exists() and report_path.exists():
+        logger.info(
+            "Outputs already exist — skipping validation (use --force to re-run).\n"
+            "  Parquet: %s\n  Report:  %s",
+            validated_path, report_path,
+        )
+        with open(report_path) as f:
+            return json.load(f)
 
     # ── Check inputs — fail explicitly, not silently ──────────────────────────
     if not parquet_path.exists():
@@ -628,7 +642,18 @@ def run_validate(
     internal_cols = [c for c in valid_df.columns if c.startswith("flag_") or c.startswith("_")]
     valid_df = valid_df.drop(columns=internal_cols)
 
-    valid_df.to_parquet(validated_path, index=False)
+    # Write to a .tmp file first, then rename atomically.
+    # This prevents the idempotency skip from trusting a partially-written Parquet
+    # if the process is killed mid-write (Ctrl+C, OOM). The idempotency check only
+    # sees validated_path (final), not the .tmp, so a partial write leaves no
+    # false positive — the next run re-validates cleanly.
+    tmp_path = validated_path.with_suffix(".parquet.tmp")
+    try:
+        valid_df.to_parquet(tmp_path, index=False)
+        tmp_path.rename(validated_path)          # atomic on same filesystem
+    except Exception:
+        tmp_path.unlink(missing_ok=True)         # clean up partial file on any failure
+        raise
     logger.info(
         "  Written: %d rows → %s",
         len(valid_df), validated_path,
