@@ -15,7 +15,7 @@
 ```
 ┌─────────────────────────────┐     ┌────────────────────────────────┐
 │  NYC TLC CDN (S1)           │     │  NYC Open Data / Socrata (S2)  │
-│  yellow_tripdata_2025-01    │     │  dataset: 755u-8jsi            │
+│  yellow_tripdata_2025-01    │     │  dataset: 8meu-9t5y            │
 │  .parquet  (~50 MB)         │     │  263 taxi zones (JSON)         │
 └──────────────┬──────────────┘     └────────────────┬───────────────┘
                │ HTTP GET                             │ Socrata API
@@ -51,4 +51,4 @@
 | Is data coverage complete for the month? | S1 manifest + S2 | Data reliability % |
 
 ---
-*Phase 1 (Class 4) — rendered as PNG in final polish phase*
+*Diagram view — see full source map with grain, gaps, and business justification in [`docs/source_map.md`](../docs/source_map.md).*

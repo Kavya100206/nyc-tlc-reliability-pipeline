@@ -103,4 +103,4 @@ dropping rows from metric aggregations.
 | LEFT JOIN on zone dimension | Defensive — surfaces NULL zone matches as visible anomalies rather than silently dropping rows from aggregations. |
 
 ---
-*Phase 4 (Class 7) — PNG rendered in final polish phase*
+*Mermaid ER diagram rendered natively by GitHub. Fact/dimension relational model implemented in `src/model.py`.*
